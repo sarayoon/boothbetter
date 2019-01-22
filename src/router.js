@@ -3,9 +3,11 @@ import Router from 'vue-router';
 import Hello from '@/components/Hello';
 import AllEvents from '@/components/AllEvents';
 import AllVendors from '@/components/AllVendors';
-import SingleVendor from '@/components/SingleVendor';
+import VendorProfile from '@/views/VendorProfile';
 import NewBooking from '@/components/NewBooking';
 import NewBill from '@/components/NewBill';
+import BillSent from '@/components/BillSent';
+import PublicBill from '@/components/PublicBill';
 import Auth from '@okta/okta-vue';
 
 Vue.use(Auth, {
@@ -40,7 +42,7 @@ let router = new Router({
     {
       path: '/vendors/:id',
       name: 'SingleVendor',
-      component: SingleVendor,
+      component: VendorProfile,
       meta: {
         requiresAuth: true,
       },
@@ -60,17 +62,24 @@ let router = new Router({
       meta: {
         requiresAuth: true,
       },
-      props: true,
     },
     {
-      path: '/bills/view/:id',
+      path: '/viewbill/:id',
       name: 'PublicBill',
-      component: NewBill,
+      component: PublicBill,
     },
     {
       path: '/bills/:id',
       name: 'NewBill',
       component: NewBill,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/billconfirmation',
+      name: 'BillSent',
+      component: BillSent,
       meta: {
         requiresAuth: true,
       },

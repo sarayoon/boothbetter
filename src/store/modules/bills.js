@@ -16,7 +16,7 @@ const mutations = {
   },
   UPDATE_BILL(state, bill) {
     state.all = [
-      ...state.all.bill(elem => {
+      ...state.all.filter(elem => {
         elem.id !== bill.id;
       }),
       bill,
@@ -38,11 +38,15 @@ const actions = {
     router.push({ name: 'NewBill', params: { id: data.id } });
   },
   async updateBill({ commit }, billingDetails) {
-    const { data } = await axios.put('/api/bills', billingDetails);
+    const { data } = await axios.put('/api/bills', { billingDetails });
     commit('UPDATE_BILL', data);
   },
   async getSingleBill({ commit }, billId) {
     const { data } = await axios.get(`/api/bills/${billId}`);
+    commit('SET_SINGLE_BILL', data);
+  },
+  async getPublicBill({ commit }, billId) {
+    const { data } = await axios.get(`/api/viewbill/${billId}`);
     commit('SET_SINGLE_BILL', data);
   },
 };

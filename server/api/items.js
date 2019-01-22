@@ -36,7 +36,6 @@ router.post('/', async (req, res, next) => {
         // todo: handle if elem.name is false
       })
     );
-    console.log('items from post items route promise all is ', newItems);
     res.json(newItems);
   } catch (err) {
     next(err);

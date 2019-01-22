@@ -1,6 +1,6 @@
 <template>
   <b-container fluid mt-4>
-    <h1 class="h1">All Events</h1>
+    <h4 class="h4">all events</h4>
     <b-table striped hover :items="events" :fields="fields">
       <router-link
         v-for="field in fields"
@@ -20,18 +20,18 @@ export default {
     return {
       fields: {
         name: {
-          label: 'Name',
+          label: 'name',
         },
         start_date: {
-          label: 'Start Date',
+          label: 'start date',
           sortable: true,
         },
         end_date: {
-          label: 'End Date',
+          label: 'end date',
           sortable: true,
         },
         description: {
-          label: 'Description',
+          label: 'description',
         },
       },
     };

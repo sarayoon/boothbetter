@@ -1,43 +1,51 @@
 <template>
-  <b-container>
-    <b-card :title="singleVendor.contact_name" :sub-title="singleVendor.bus_name">
-      <p class="card-text">
-        <b>id:</b>
-        {{ singleVendor.id }}
-      </p>
+  <card class="card" title="vendor details" :sub-title="singleVendor.bus_name">
+    <b-container>
+      <b-row>
+        <p class="col-md-6">
+          <b>contact name:</b>
+          {{ singleVendor.contact_name }}
+        </p>
+        <p class="col-md-6 text-right">
+          <b>id:</b>
+          {{ singleVendor.id }}
+        </p>
+      </b-row>
       <p>
-        <b>Contact Name:</b>
-        {{ singleVendor.contact_name }}
-      </p>
-      <p>
-        <b>Contact Phone #:</b>
+        <b>phone num:</b>
         {{ singleVendor.contact_phone_num }}
       </p>
       <p>
-        <b>Business Name #:</b>
+        <b>business name:</b>
         {{ singleVendor.bus_name}}
       </p>
       <p>
-        <b>Business Description:</b>
+        <b>description:</b>
         {{ singleVendor.bus_description}}
       </p>
       <p>
-        <b>Business Website:</b>
+        <b>business website:</b>
         {{ singleVendor.bus_website}}
       </p>
       <p>
-        <b>Business Social:</b>
+        <b>business social:</b>
         {{ singleVendor.bus_social}}
       </p>
-      <b-button @click="makeBooking(id)" variant="primary">Make A Booking</b-button>
-    </b-card>
-  </b-container>
+      <b-container class="text-center">
+        <b-button class="btn-info btn-round" @click="makeBooking(id)">Make A Booking</b-button>
+      </b-container>
+    </b-container>
+  </card>
 </template>
 
 <script>
+import card from './Card.vue';
 import { mapState, mapActions } from 'vuex';
 export default {
   name: 'SingleVendor',
+  components: {
+    card,
+  },
   computed: mapState({
     singleVendor: state => state.vendors.selected,
   }),

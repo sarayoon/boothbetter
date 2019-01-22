@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Bill, Booking, Vendor, Event, Item } = require('../db/models');
+const Hashids = require('hashids');
+const hashids = new Hashids('', 30);
 module.exports = router;
 
 router.get('/', async (req, res, next) => {
@@ -55,26 +57,18 @@ router.post('/', async (req, res, next) => {
 
 router.put('/', async (req, res, next) => {
   try {
-    const { id, bill_due_date, amt_owed } = req.body;
+    const { billingDetails } = req.body;
+    const id = billingDetails[0];
+    const amt = billingDetails[1];
     const bill = await Bill.findByPk(id);
     await bill.update({
       bill_date: Date.now(),
-      bill_due_date,
-      amt_owed,
+      // bill_due_date,
+      amt_owed: amt,
     });
     const updatedBill = await Bill.findByPk(id);
+    console.log('updatedBill is ', updatedBill);
     res.json(updatedBill);
-  } catch (err) {
-    next(err);
-  }
-});
-
-router.post('/generateLink', async (req, res, next) => {
-  try {
-    const { arr } = req.body;
-    const link = hashids.encode(...arr);
-    console.log(link);
-    res.json(link);
   } catch (err) {
     next(err);
   }

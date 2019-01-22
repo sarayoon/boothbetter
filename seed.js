@@ -9,13 +9,13 @@ const seed = async () => {
   try {
     await db.sync({ force: true });
     const company = await Company.create({
-      name: 'Clearview Productions',
+      name: 'Street Fair Productions',
       address: '630 9th Ave #417, New York, NY 10036',
       phone_num: '(646) 230-0047',
     });
     bcrypt.hash('sara', saltRounds, async (err, hash) => {
       await User.create({
-        email: 'sara@clearviewproductions.com',
+        email: 'sara@streetfairproductions.com',
         password: hash,
         phone_num: '(917) 698-1515',
         main_contact: true,

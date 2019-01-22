@@ -20,7 +20,6 @@ const actions = {
   },
   async addItems({ commit }, { items, bookingId }) {
     const { data } = await axios.post('/api/items', { items, bookingId });
-    console.log('data from addItems is ', data);
     commit('ADD_ITEMS', data);
   },
 };

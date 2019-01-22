@@ -11,6 +11,7 @@ router.use('/bookings', require('./bookings'));
 router.use('/bills', require('./bills'));
 router.use('/items', require('./items'));
 router.use('/sendemail', require('./sendemail'));
+router.use('/viewbill', require('./viewbill'));
 
 router.use((req, res, next) => {
   const err = new Error('Not found');

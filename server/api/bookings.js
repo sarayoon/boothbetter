@@ -14,7 +14,6 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const booking = await Booking.findByPk(req.params.id);
-    console.log('get single booking route is ', booking);
     res.json(booking);
   } catch (err) {
     next(err);

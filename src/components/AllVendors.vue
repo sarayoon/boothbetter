@@ -1,6 +1,6 @@
 <template>
   <b-container fluid>
-    <h1 class="h1">All Vendors</h1>
+    <h4 class="h4">all vendors</h4>
     <b-table striped hover :items="vendors" :fields="fields" @row-clicked="selected"></b-table>
     <!-- <ul v-for="(vendor, index) in vendors" v-bind:key="index">
       <router-link :to="{ name: 'SingleVendor', params: {id: vendor.id}}">{{vendor.contact_name}}</router-link>
@@ -16,21 +16,21 @@ export default {
     return {
       fields: {
         contact_name: {
-          label: 'Contact Name',
+          label: 'contact name',
           sortable: true,
         },
         contact_phone_num: {
-          label: 'Contact Phone Number',
+          label: 'contact number',
         },
         bus_name: {
-          label: 'Business Name',
+          label: 'business name',
           sortable: true,
         },
         bus_description: {
-          label: 'Business Description',
+          label: 'business description',
         },
         bus_social: {
-          label: 'Instagram',
+          label: 'instagram',
         },
       },
     };

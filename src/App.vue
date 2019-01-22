@@ -13,10 +13,6 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/vendors">Vendors</router-link>
-    </div>-->
     <router-view/>
   </div>
 </template>
