@@ -67,7 +67,6 @@ router.put('/', async (req, res, next) => {
       amt_owed: amt,
     });
     const updatedBill = await Bill.findByPk(id);
-    console.log('updatedBill is ', updatedBill);
     res.json(updatedBill);
   } catch (err) {
     next(err);

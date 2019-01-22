@@ -6,10 +6,8 @@ module.exports = router;
 
 router.get('/:id', async (req, res, next) => {
   try {
-    console.log('req.params.id is ', req.params.id);
     const arr = hashids.decode(req.params.id);
     const billId = arr[0];
-    console.log('billId is ', billId);
     const [booking] = await Booking.findAll({
       include: [
         { model: Bill, where: { id: billId } },
