@@ -6,8 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "postinstall": "npm run build",
     "seed": "node seed.js",
-    "start": "nodemon server/start.js"
+    "start": "node server/start.js"
   },
   "dependencies": {
     "@okta/okta-vue": "^1.0.0",

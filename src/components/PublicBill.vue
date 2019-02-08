@@ -113,10 +113,10 @@
             </b-card>
           </b-col>
         </b-row>
-        <b-container class="text-center">
+        <!-- <b-container class="text-center">
           <b-button class="btn-info btn-round">Pay Bill Via Credit Card</b-button>
           <b-button class="btn-info btn-round">Pay Bill Via Bank Transfer</b-button>
-        </b-container>
+        </b-container> -->
       </b-col>
     </b-row>
   </b-container>

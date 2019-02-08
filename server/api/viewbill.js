@@ -28,7 +28,11 @@ router.get('/:id', async (req, res, next) => {
         { model: Item },
       ],
     });
-    res.json(booking);
+    if (booking) {
+      res.json(booking);
+    } else {
+      res.sendStatus(404).send('You are not authorized to send this page.');
+    }
   } catch (err) {
     next(err);
   }

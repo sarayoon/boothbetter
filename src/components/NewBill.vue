@@ -76,9 +76,9 @@
                     <tbody>
                       <tr v-for="(item, index) in items" :key="index">
                         <td>{{item.name}}</td>
-                        <td class="text-center">{{item.price}}</td>
+                        <td class="text-center">${{item.price}}</td>
                         <td class="text-center">{{item.quantity}}</td>
-                        <td class="text-right">{{itemTotal(item)}}</td>
+                        <td class="text-right">${{itemTotal(item)}}</td>
                       </tr>
                       <tr>
                         <td class="thick-line"></td>
@@ -146,8 +146,8 @@ export default {
     async sendEmail() {
       const arr = [this.bill.id, this.vendor.id, this.event.id];
       const billingDetails = [this.bill.id, this.subTotal(this.items)];
-      const updatedBill = await this.updateBill(billingDetails);
-      const { data } = await axios.post('/api/sendemail', { arr });
+      await this.updateBill(billingDetails);
+      await axios.post('/api/sendemail', { arr });
       router.push({ name: 'BillSent', params: { id: this.bill.id } });
     },
   },
